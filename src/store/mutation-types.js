@@ -1,0 +1,4 @@
+//
+//
+
+export const BREADCRUMB_UPDATE = 'BREADCRUMB_UPDATE'
