@@ -1,24 +1,17 @@
 <template>
-  <div class="hello">
+  <div class="">
     <h1>{{ msg }}</h1>
-    <Checkbox v-model="single">Checkbox</Checkbox>
   </div>
 </template>
 
 <script>
-import Checkbox from 'iview/src/components/checkbox';
 
 export default {
-  name: 'hello',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      single: false
+      msg: 'Dashboard',
     }
   },
-  components: {
-    Checkbox
-  }
 }
 </script>
 
