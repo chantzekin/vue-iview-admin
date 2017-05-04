@@ -1,6 +1,10 @@
 <template>
   <Breadcrumb class="breadcrumb">
-    <Breadcrumb-item v-for="(item, index) in list" :href="item.path" :key="item.name">
+    <Breadcrumb-item
+      v-for="(item, index) in list"
+      :href="item.path"
+      :key="item.name"
+    >
       {{item.meta.title}}
     </Breadcrumb-item>
   </Breadcrumb>
@@ -27,7 +31,7 @@ export default {
         matched = [{ name: 'Home', path: '/', meta: { title: 'Home' } }].concat(matched)
       }
       if (last && last.path !== '') {
-        matched[matched.length - 1].path = ''
+        last.path = ''
       }
       for (var index in matched) {
         let item = matched[index]
@@ -36,7 +40,6 @@ export default {
         }
       }
       this.list = matched
-      console.log(this.list)
     }
   },
   watch: {

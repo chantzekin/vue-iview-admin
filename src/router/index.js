@@ -4,9 +4,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 const Index = r => require.ensure([], () => r(require('@/pages/Index')), 'index')
-const Dashboard = r => require.ensure([], () => r(require('@/pages/Dashboard')), 'dashboard')
+const Dashboard = r => require.ensure([], () => r(require('@/pages/Dashboard/index')), 'dashboard')
 const Task = r => require.ensure([], () => r(require('@/pages/Task')), 'task')
-const SubPage = r => require.ensure([], () => r(require('@/pages/SubPage')), 'subPage')
+const SubPage = r => require.ensure([], () => r(require('@/pages/Submenu/SubPage')), 'subPage')
 
 const NotFound = r => require.ensure([], () => r(require('@/pages/404')), '404')
 

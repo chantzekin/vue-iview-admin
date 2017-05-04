@@ -11,7 +11,7 @@
           </keep-alive>
         </div>
       </div>
-      <footer class="footer">wiair mdmp © 2017</footer>
+      <footer class="footer">mdmp © 2017</footer>
     </div>
   </div>
 </template>
@@ -38,16 +38,12 @@ export default {
   height: 100vh;
 }
 
-
-
 .main {
   margin-left: 224px;
   overflow: auto;
   height: 100vh;
   transition: all .3s ease-out;
 }
-
-
 
 .header {
   box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.05);

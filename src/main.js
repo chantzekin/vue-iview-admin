@@ -2,14 +2,17 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import iView from 'iview'
+import axios from 'axios'
 
 import App from './App'
 import router from './router'
 import store from './store'
+import mcok from './mock'
 
 import 'iview/dist/styles/iview.css'
 
 Vue.use(iView)
+Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
 
