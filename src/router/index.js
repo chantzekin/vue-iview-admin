@@ -6,6 +6,7 @@ Vue.use(Router)
 const Index = r => require.ensure([], () => r(require('@/pages/Index')), 'index')
 const Dashboard = r => require.ensure([], () => r(require('@/pages/Dashboard')), 'dashboard')
 const Task = r => require.ensure([], () => r(require('@/pages/Task')), 'task')
+const SubPage = r => require.ensure([], () => r(require('@/pages/SubPage')), 'subPage')
 
 const NotFound = r => require.ensure([], () => r(require('@/pages/404')), '404')
 
@@ -23,13 +24,26 @@ const routes = [
         path: '/dashboard',
         name: 'dashboard',
         component: Dashboard,
-        meta: { title: '仪表盘', auth: true },
+        meta: { title: 'Dashboard', auth: true },
       },
       {
         path: '/task',
         name: 'task',
         component: Task,
-        meta: { title: '案例', auth: true },
+        meta: { title: 'Task', auth: true },
+      },
+      {
+        path: '/submenu',
+        name: 'submenu',
+        meta: { title: 'Submenu', isSubmenu: true, auth: true },
+        children: [
+          {
+            path: '/submenu/subpage',
+            name: 'subPage',
+            component: SubPage,
+            meta: { title: 'Sub Page', auth: true },
+          },
+        ]
       },
       {
         path: '*',

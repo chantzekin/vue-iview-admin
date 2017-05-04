@@ -24,9 +24,14 @@ export const menus = [
     icon: 'navicon',
     children: [
       {
-        key: '/submenu/test',
-        title: 'Test',
-        icon: 'cube'
+        key: '/submenu/subpage',
+        title: 'Sub Page',
+        icon: 'document'
+      },
+      {
+        key: '/submenu/404',
+        title: '404',
+        icon: 'sad-outline'
       },
     ]
   }

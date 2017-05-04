@@ -3,10 +3,7 @@
     <Sider />
     <div class="main">
       <header class="header"></header>
-      <Breadcrumb class="breadcrumb">
-        <Breadcrumb-item href="/">Home</Breadcrumb-item>
-        <Breadcrumb-item>Dashboard</Breadcrumb-item>
-      </Breadcrumb>
+      <Bread />
       <div class="container">
         <div class="content">
           <keep-alive>
@@ -21,6 +18,7 @@
 
 <script>
 import Sider from '../components/Layout/Sider'
+import Bread from '../components/Layout/Bread'
 
 export default {
   data() {
@@ -28,7 +26,8 @@ export default {
     }
   },
   components: {
-    Sider
+    Sider,
+    Bread
   }
 }
 </script>
@@ -63,13 +62,6 @@ export default {
   background-color: #fff;
 }
 
-.breadcrumb {
-  height: 64px;
-  line-height: 64px;
-  padding: 0 24px;
-  margin-bottom: -24px;
-}
-
 .container {
   margin: 24px;
 }
@@ -89,5 +81,4 @@ export default {
   box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.05);
   width: 100%;
 }
-
 </style>
