@@ -36,13 +36,13 @@ export default {
       appName: config.appName,
       menus,
       activeTab: '',
-      openTab: ['submenu'],
+      openTab: [''],
     }
   },
   watch: {
     '$route'(to, from) {
       var pathname = to.path.split('/')[1]
-      if (path === '/' || pathname === 'index') {
+      if (to.path === '/' || pathname === 'index') {
         this.activeTab = config.defaultPage
       }
     }
@@ -54,7 +54,7 @@ export default {
       var isDefaultPage = path === '/'
         || paths[1] === 'index'
       if (paths.length > 2) {
-        this.openTab = '/' + paths[1]
+        this.openTab = ['/' + paths[1]]
       }
 
       var pathname = isDefaultPage
