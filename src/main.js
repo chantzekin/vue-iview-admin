@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import iView from 'iview'
 import axios from 'axios'
+import VueHighcharts from 'vue-highcharts';
 
 import App from './App'
 import router from './router'
@@ -12,6 +13,7 @@ import mcok from './mock'
 import 'iview/dist/styles/iview.css'
 
 Vue.use(iView)
+Vue.use(VueHighcharts);
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false

@@ -5,11 +5,8 @@ import * as api from '../../api/dashboard'
 import * as types from '../mutation-types'
 
 const state = {
-  numbers: []
-}
-
-const getters = {
-  dashboardNumbers: state => state.numbers
+  numbers: [],
+  regionChartData: [],
 }
 
 const actions = {
@@ -22,12 +19,12 @@ const actions = {
 const mutations = {
   [types.RECEIVE_DASHBOARD](state, { data }) {
     state.numbers = data.numbers
+    state.regionChartData = data.regionChartData
   }
 }
 
 export default {
   state,
-  getters,
   actions,
   mutations
 }

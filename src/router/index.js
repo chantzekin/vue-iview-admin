@@ -14,8 +14,11 @@ const Login = r => require.ensure([], () => r(require('@/pages/User/Login')), 'l
 
 const routes = [
   {
+    path: '/',
+    redirect: '/index'
+  },
+  {
     path: '/index',
-    alias: '/',
     component: Index,
     meta: { title: '主页', auth: true },
     children: [
@@ -47,7 +50,7 @@ const routes = [
       },
       {
         path: '*',
-        name: '404',
+        name: 'index - 404',
         component: NotFound,
         meta: { title: '404 Not Found', auth: true },
       },
@@ -57,6 +60,12 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login,
+  },
+  {
+    path: '*',
+    name: '404',
+    component: NotFound,
+    meta: { title: '404 Not Found', auth: true },
   },
 ]
 

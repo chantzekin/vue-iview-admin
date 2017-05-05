@@ -3,7 +3,7 @@
 
 export default {
   logoUrl: 'https://file.iviewui.com/dist/76ecb6e76d2c438065f90cd7f8fa7371.png',
-  appName: 'ndmp',
+  appName: 'mdmp',
   defaultPage: '/dashboard',
 }
 
