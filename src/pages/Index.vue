@@ -2,7 +2,17 @@
   <div class="layout">
     <Sider />
     <div class="main">
-      <header class="header"></header>
+      <header class="header">
+        <Dropdown class="user-dropdown">
+          <Button type="text" class="user-button">
+            <Icon type="ios-person-outline" class="icon"></Icon>
+            <span class="name">admin</span>
+          </Button>
+          <Dropdown-menu slot="list">
+            <Dropdown-item>Logout</Dropdown-item>
+          </Dropdown-menu>
+        </Dropdown>
+      </header>
       <Bread />
       <div class="container">
         <div class="content">
@@ -55,8 +65,24 @@ export default {
   -ms-flex-pack: justify;
   justify-content: space-between;
   height: 47px;
+  line-height: 47px;
   background-color: #fff;
+  padding: 0 24px;
+  justify-content: flex-end;
 }
+
+.user-dropdown {}
+
+.user-button {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  height: 47px;
+  .icon {
+    margin-right: 8px;
+  }
+}
+
 
 .container {
   margin: 24px;
