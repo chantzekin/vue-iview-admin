@@ -24,8 +24,8 @@ export default [
   }
 ]
 
-const getUserInfo = (name) => {
-  const user = users[name]
+const getUserInfo = (username) => {
+  const user = users[username]
   if (user) {
     const data = { ...user }
     delete data.password
