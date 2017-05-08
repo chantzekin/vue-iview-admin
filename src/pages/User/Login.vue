@@ -1,18 +1,39 @@
 <template>
   <div class="login">
-    <Form class="form" ref="loginForm" :model="formValidate" :rules="ruleValidate">
+    <Form
+      class="form"
+      ref="loginForm"
+      :model="formValidate"
+      :rules="ruleValidate"
+    >
       <div class="logo">
         <img :src="logoUrl" alt="logo">
         <span>{{appName}}</span>
       </div>
       <Form-item prop="username">
-        <Input type="text" v-model="formValidate.username" placeholder="Username" icon="ios-person-outline"></Input>
+        <Input
+          type="text"
+          v-model="formValidate.username"
+          placeholder="Username"
+          icon="ios-person-outline"
+          @on-enter="handleSubmit"
+        ></Input>
       </Form-item>
       <Form-item prop="password">
-        <Input type="password" v-model="formValidate.password" placeholder="Password" icon="ios-locked-outline"></Input>
+        <Input
+          type="password"
+          v-model="formValidate.password"
+          placeholder="Password"
+          icon="ios-locked-outline"
+          @on-enter="handleSubmit"
+        ></Input>
       </Form-item>
       <Form-item>
-        <Button type="primary" @click="handleSubmit" :loading="loading" long>
+        <Button type="primary"
+          @click="handleSubmit"
+          :loading="loading"
+          long
+        >
           <span v-if="!loading">Sign in</span>
           <span v-else>Please wait...</span>
         </Button>
