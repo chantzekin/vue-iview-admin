@@ -6,7 +6,10 @@ import * as types from '../mutation-types'
 
 const state = {
   numbers: [],
-  regionChartData: [],
+  regionChartData: {},
+  ageChartData: {},
+  osChartData: {},
+  terminalChartData: {}
 }
 
 const actions = {
@@ -18,8 +21,7 @@ const actions = {
 
 const mutations = {
   [types.RECEIVE_DASHBOARD](state, { data }) {
-    state.numbers = data.numbers
-    state.regionChartData = data.regionChartData
+    Object.assign(state, data)
   }
 }
 

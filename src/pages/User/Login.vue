@@ -7,8 +7,11 @@
       :rules="ruleValidate"
     >
       <div class="logo">
-        <img :src="logoUrl" alt="logo">
-        <span>{{appName}}</span>
+        <img
+          :src="logoUrl"
+          alt="logo"
+        >
+          <span>{{appName}}</span>
       </div>
       <Form-item prop="username">
         <Input
@@ -29,16 +32,17 @@
         ></Input>
       </Form-item>
       <Form-item>
-        <Button type="primary"
+        <Button
+          type="primary"
           @click="handleSubmit"
           :loading="loading"
           long
         >
           <span v-if="!loading">Sign in</span>
           <span v-else>Please wait...</span>
-        </Button>
+          </Button>
       </Form-item>
-    </Form>
+      </Form>
   </div>
 </template>
 

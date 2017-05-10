@@ -30,7 +30,7 @@ export default {
   mounted() {
     let data = this.data
     let x = data.map(item => item.name)
-    let seriesData = data.map(item => item.percent)
+    let seriesData = data.map(item =>item.percent)
 
     this.bar.title.text = this.title
     this.bar.xAxis.data = x
@@ -38,7 +38,7 @@ export default {
   },
   data: () => ({
     bar: {
-      color: ['#8fc9fb'],
+      color: ['#f69899'],
       title: {
         text: '',
         textStyle: {
@@ -47,7 +47,7 @@ export default {
           fontSize: 16
         },
       },
-      legend: {
+       legend: {
         data: ['占比'],
         top: 'bottom'
       },

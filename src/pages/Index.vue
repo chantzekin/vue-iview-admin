@@ -74,12 +74,13 @@ export default {
 .user-dropdown {}
 
 .user-button {
-  display: flex;
-  align-items: center;
   font-size: 14px;
   height: 47px;
+  padding-top: 0;
+  padding-bottom: 0;
   .icon {
-    margin-right: 8px;
+    font-size: 20px;
+    margin-right: 16px;
   }
 }
 
@@ -102,5 +103,30 @@ export default {
   background: #fff;
   box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.05);
   width: 100%;
+}
+</style>
+<style lang="scss">
+.user-button {
+  position: relative;
+  &:after {
+    opacity: 0;
+    position: absolute;
+    content: '';
+    height: 2px;
+    background-color: #39f;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    transition: all .2s ease-in;
+  }
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+  &>span {
+    display: flex;
+    align-items: center;
+  }
 }
 </style>

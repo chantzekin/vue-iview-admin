@@ -3,37 +3,59 @@
     <transition name="fade">
       <Row v-if="!loading" class="dashboard-grid" :gutter="16">
         <Col :md="6" :sm="12" v-for="num in numbers" :key="num.key">
-        <NumberCard :title="num.title" :color="num.color" :number="num.number" :icon="num.icon" />
+          <NumberCard
+            :title="num.title"
+            :color="num.color"
+            :number="num.number"
+            :icon="num.icon"
+          />
         </Col>
-        <Col :md="12" :sm="24">
-        <Card>
-          <RegionChart />
-        </Card>
+        <Col :md="14" :sm="24">
+          <Card>
+            <RegionChart
+              :title="region.title"
+              :data="region.data"
+            />
+          </Card>
         </Col>
-        <Col :md="12" :sm="24">
-        <Card style="height: 288px" />
+        <Col :md="10" :sm="24">
+          <Card>
+            <OSChart
+              :title="os.title"
+              :data="os.data"
+            />
+          </Card>
+        </Col>
+        <Col :md="10" :sm="24">
+          <Card>
+            <OSChart
+              :title="terminal.title"
+              :data="terminal.data"
+            />
+          </Card>
+        </Col>
+        <Col :md="14" :sm="24">
+          <Card>
+            <AgeChart
+              :title="age.title"
+              :data="age.data"
+            />
+          </Card>
         </Col>
       </Row>
     </transition>
-    <Row v-if="loading" class="dashboard-grid" :gutter="16">
-      <Col :md="6" :sm="12" v-for="(num, index) in [1,2,3,4]" :key="index">
-      <Card style="height: 88px" />
-      </Col>
-      <Col :md="12" :sm="24">
-      <Card style="height: 288px" />
-      </Col>
-      <Col :md="12" :sm="24">
-      <Card style="height: 288px" />
-      </Col>
-    </Row>
+    <LoadingMarker v-if="loading" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
+import LoadingMarker from './LoadingMarker'
 import NumberCard from './components/NumberCard'
 import RegionChart from './components/RegionChart'
+import AgeChart from './components/AgeChart'
+import OSChart from './components/OSChart'
 
 export default {
   data() {
@@ -47,14 +69,21 @@ export default {
   },
   computed: {
     ...mapGetters({
-      numbers: 'statisticsNumbers'
+      numbers: 'statisticsNumbers',
+      region: 'regionChartData',
+      age: 'ageChartData',
+      os: 'osChartData',
+      terminal: 'terminalChartData'
     })
   },
   methods: {
   },
   components: {
+    LoadingMarker,
     NumberCard,
     RegionChart,
+    AgeChart,
+    OSChart
   }
 }
 </script>
@@ -62,17 +91,5 @@ export default {
 <style scoped>
 .dashboard-grid .ivu-col {
   margin-bottom: 16px;
-}
-</style>
-
-<style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .5s
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
 }
 </style>

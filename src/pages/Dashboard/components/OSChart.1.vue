@@ -1,7 +1,7 @@
 <template>
   <div class="chart-box">
     <chart
-      :option="bar"
+      :option="chartOpts"
       resizable
     />
   </div>
@@ -10,10 +10,9 @@
 <script>
 import ECharts from 'vue-echarts-v3/src/lite.vue'
 
-import 'echarts/lib/chart/bar'
+import 'echarts/lib/chart/Pie'
 import 'echarts/lib/component/title'
 import 'echarts/lib/component/tooltip'
-import 'echarts/lib/component/legend'
 
 export default {
   components: {
@@ -29,16 +28,14 @@ export default {
   },
   mounted() {
     let data = this.data
-    let x = data.map(item => item.name)
-    let seriesData = data.map(item => item.percent)
+    console.log(data)
 
-    this.bar.title.text = this.title
-    this.bar.xAxis.data = x
-    this.bar.series[0].data = seriesData
+    this.chartOpts.title.text = this.title
+    this.chartOpts.series[0].data = data
   },
   data: () => ({
-    bar: {
-      color: ['#8fc9fb'],
+    chartOpts: {
+      color: ['#d897eb', '#64ea91', '#8fc9fb', '#f69899'],
       title: {
         text: '',
         textStyle: {
@@ -47,18 +44,11 @@ export default {
           fontSize: 16
         },
       },
-      legend: {
-        data: ['占比'],
-        top: 'bottom'
-      },
       tooltip: {},
-      xAxis: {
-        data: []
-      },
-      yAxis: {},
       series: [{
-        name: '占比',
-        type: 'bar',
+        name: '系统',
+        type: 'pie',
+        radius: '55%',
         data: []
       }]
     }
