@@ -1,6 +1,9 @@
 //
 //
 
+// Common
+export const SHOW_MESSAGE = 'SHOW_MESSAGE'
+
 // Dashboard
 export const RECEIVE_DASHBOARD = 'RECEIVE_DASHBOARD'
 

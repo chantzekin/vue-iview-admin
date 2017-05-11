@@ -1,9 +1,12 @@
 //
 //
 
-import * as types from './mutation-types'
+import Message from 'iview/src/components/message'
+
+import { SHOW_MESSAGE } from './mutation-types'
 
 export default {
-  [types.RECEIVE_DASHBOARD](state, payload) {
+  [SHOW_MESSAGE](state, { type, content }) {
+    Message[type](content);
   }
 }
