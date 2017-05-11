@@ -2,6 +2,10 @@
 //
 
 export default {
+  // user
+  token: state => state.user.token,
+
+  // dashboard
   statisticsNumbers: state => state.dashboard.numbers,
   regionChartData: state => state.dashboard.regionChartData,
   ageChartData: state => state.dashboard.ageChartData,

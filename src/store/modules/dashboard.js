@@ -14,8 +14,9 @@ const state = {
 
 const actions = {
   fetchDashboard({ commit }) {
-    api.fetch(({ data }) =>
-      commit(types.RECEIVE_DASHBOARD, data))
+    api
+      .fetch()
+      .then(data => commit(types.RECEIVE_DASHBOARD, data))
   }
 }
 

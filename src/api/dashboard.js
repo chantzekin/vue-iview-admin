@@ -1,8 +1,13 @@
 //
 //
 
-import axios from 'axios'
+import { fetch as _fetch } from './fetch'
 
-export function fetch(cb) {
-  axios.get('/api/dashboard').then(res => cb(res))
+export function fetch() {
+  const opts = {
+    url: '/api/dashboard',
+    method: 'get',
+    parmas: {}
+  }
+  return _fetch(opts)
 }

@@ -1,13 +1,14 @@
 //
 //
 
-import axios from 'axios'
+import { fetch as _fetch } from './fetch'
 
 export function login(username, password) {
   const data = { username, password }
-  return new Promise((resolve, reject) => {
-    axios
-      .post('/api/login', data)
-      .then(res => resolve(res.data))
-  })
+  const opts = {
+    url: '/api/login',
+    method: 'post',
+    data
+  }
+  return _fetch(opts)
 }
