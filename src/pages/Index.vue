@@ -4,13 +4,19 @@
     <div class="main">
       <header class="header">
         <Dropdown class="user-dropdown">
-          <Button type="text" class="user-button">
-            <Icon type="ios-person-outline" class="icon"></Icon>
-            <span class="name">admin</span>
-          </Button>
-          <Dropdown-menu slot="list">
-            <Dropdown-item>Logout</Dropdown-item>
-          </Dropdown-menu>
+          <Button
+            type="text"
+            class="user-button"
+          >
+            <Icon
+              type="ios-person-outline"
+              class="icon"
+            ></Icon>
+              <span class="name">admin</span>
+              </Button>
+              <Dropdown-menu slot="list">
+                <Dropdown-item>Logout</Dropdown-item>
+              </Dropdown-menu>
         </Dropdown>
       </header>
       <Bread />
@@ -38,6 +44,9 @@ export default {
   components: {
     Sider,
     Bread
+  },
+  mounted() {
+
   }
 }
 </script>
