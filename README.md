@@ -1,30 +1,32 @@
-# vue-mdmp
 
-> mdmp system build with vuejs
 
-## Build Setup
+# VUE MDMP
+
+### 特性
+
+- 基于 [Vue](https://cn.vuejs.org/)，[iView](https://www.iviewui.com/)，[Mock](http://mockjs.com/)。
+- MVVM 框架，数据驱动。
+- 应用 Vue 配套组件， [Vuex](https://vuex.vuejs.org/) 管理应用状态，
+[vue-router](https://router.vuejs.org/) 管理单页应用路由。
+- [vue-cli](https://github.com/vuejs/vue-cli) 配合 [webpack](https://github.com/webpack/webpack) 工程化。
+- es6
+
+### 功能
+
+...待写
+
+## 安装运行
 
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
+# 本地开发
 npm run dev
 
-# build for production with minification
+# 构建生成
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
+# 测试
 npm test
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
