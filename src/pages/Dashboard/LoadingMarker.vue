@@ -9,6 +9,12 @@
     <Col :md="10" :sm="24">
       <Card style="height: 284px" />
     </Col>
+    <Col :md="10" :sm="24">
+      <Card style="height: 284px" />
+    </Col>
+    <Col :md="14" :sm="24">
+      <Card style="height: 284px" />
+    </Col>
   </Row>
 </template>
 
