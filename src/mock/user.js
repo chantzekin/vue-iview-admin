@@ -38,14 +38,14 @@ const users = {
   admin: {
     token: '9GNAdsIedU6PGWMf',
     role: ['admin'],
-    name: 'admin',
+    name: '管理员',
     password: 'mdmp2017',
     avatar: '',
   },
   guest: {
     token: 'l33WzPqJfJQa2oGS',
     role: ['guest'],
-    name: 'guest',
+    name: '访客',
     password: 'guest2017',
     avatar: '',
   },
