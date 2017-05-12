@@ -11,6 +11,12 @@
 - [vue-cli](https://github.com/vuejs/vue-cli) 配合 [webpack](https://github.com/webpack/webpack) 工程化。
 - es6
 
+### 预览
+
+![](http://ww4.sinaimg.cn/large/006HJ39wgy1ffis2jkm8ej30yv0gcwew.jpg)
+![](http://ww3.sinaimg.cn/large/006HJ39wgy1ffis2ixs2pj30yv0gc3zl.jpg
+)
+
 ### 功能
 
 ...待写
