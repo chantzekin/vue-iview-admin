@@ -20,31 +20,31 @@ const routes = [
   {
     path: '/index',
     component: Index,
-    meta: { title: '主页', auth: true },
+    meta: { title: '主页', },
     children: [
       {
         alias: '',
         path: '/dashboard',
         name: 'dashboard',
         component: Dashboard,
-        meta: { title: 'Dashboard', auth: true },
+        meta: { title: 'Dashboard', },
       },
       {
         path: '/task',
         name: 'task',
         component: Task,
-        meta: { title: 'Task', auth: true },
+        meta: { title: 'Task', },
       },
       {
         path: '/submenu',
         name: 'submenu',
-        meta: { title: 'Submenu', isSubmenu: true, auth: true },
+        meta: { title: 'Submenu', isSubmenu: true, },
         children: [
           {
             path: '/submenu/subpage',
             name: 'subPage',
             component: SubPage,
-            meta: { title: 'Sub Page', auth: true },
+            meta: { title: 'Sub Page', },
           },
         ]
       },
@@ -52,7 +52,7 @@ const routes = [
         path: '*',
         name: 'index - 404',
         component: NotFound,
-        meta: { title: '404 Not Found', auth: true },
+        meta: { title: '404 Not Found', },
       },
     ]
   },
@@ -65,7 +65,7 @@ const routes = [
     path: '*',
     name: '404',
     component: NotFound,
-    meta: { title: '404 Not Found', auth: true },
+    meta: { title: '404 Not Found', },
   },
 ]
 
