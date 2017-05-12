@@ -3,10 +3,15 @@
     <Sider />
     <div class="main">
       <header class="header">
+        <Button class="btn" type="text">
+          <i class="icon iconfont icon-msg"></i>
+        </Button>
+
         <Dropdown class="user-dropdown" @on-click="handleDropdownClick">
           <Button type="text" class="user-button">
-            <Icon type="ios-person-outline" class="icon"></Icon>
-            <span class="name">admin</span>
+            <!--<Icon type="person" class="icon"></Icon>-->
+            <i class="icon iconfont icon-user"></i>
+            <span class="name">{{name}}</span>
           </Button>
           <Dropdown-menu slot="list">
             <Dropdown-item>个人中心</Dropdown-item>
@@ -29,6 +34,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import Sider from '../components/Layout/Sider'
 import Bread from '../components/Layout/Bread'
 
@@ -36,6 +43,9 @@ export default {
   data() {
     return {
     }
+  },
+  computed: {
+    ...mapGetters(['name'])
   },
   components: {
     Sider,
@@ -45,7 +55,7 @@ export default {
   },
   methods: {
     handleDropdownClick(name) {
-      if(name === 'logout'){
+      if (name === 'logout') {
         this.logout()
       }
     },
@@ -92,6 +102,16 @@ export default {
   background-color: #fff;
   padding: 0 24px;
   justify-content: flex-end;
+  .btn {
+    height: 100%;
+    margin-left: 8px;
+    margin-right: 8px;
+    border-radius: 0;
+    transition: all .2s ease-in;
+    &:hover {
+      background-color: #ecf6fd;
+    }
+  }
 }
 
 .user-dropdown {}
@@ -102,7 +122,6 @@ export default {
   padding-top: 0;
   padding-bottom: 0;
   .icon {
-    font-size: 20px;
     margin-right: 16px;
   }
 }
@@ -115,6 +134,12 @@ export default {
 .content {
   min-height: calc(100vh - 187px);
   position: relative;
+  .content__inner {
+    background: #fff;
+    padding: 24px;
+    box-shadow: 4px 4px 20px 0 rgba(0, 0, 0, .01);
+    min-height: calc(100vh - 184px);
+  }
 }
 
 .footer {
@@ -142,14 +167,17 @@ export default {
     right: 0;
     transition: all .2s ease-in;
   }
-  &:hover {
-    &::after {
-      opacity: 1;
-    }
-  }
   &>span {
     display: flex;
     align-items: center;
+  }
+}
+
+.user-dropdown {
+  &:hover {
+    .user-button::after {
+      opacity: 1;
+    }
   }
 }
 </style>
