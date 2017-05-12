@@ -59,6 +59,7 @@ export function fetch(opts) {
     instance(opts)
       .then(response => {
         const res = response.data
+        console.log(response)
         resolve(res)
       })
       .catch(error => {
