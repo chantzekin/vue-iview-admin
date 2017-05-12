@@ -10,7 +10,7 @@ const state = {
   username: '',
   status: '',
   token: Cookies.get('X-Token') || '',
-  name: '',
+  name: Cookies.get('user_name') || '',
   avatar: '',
   roles: [],
 }
@@ -26,7 +26,7 @@ const actions = {
           if (data.success) {
             commit(types.LOGIN_SUCCESS, data.user.token)
             commit(types.SET_USER_TOKEN, data.user.token)
-            commit(types.SET_USER_USERNAME, data.user.username)
+            commit(types.SET_USER_NAME, data.user.name)
             resolve()
           }
           reject(data.msg)
@@ -54,9 +54,14 @@ const mutations = {
   },
   [types.LOGOUT_SUCCESS]: () => {
     Cookies.remove('X-Token')
+    Cookies.remove('user_name')
   },
   [types.SET_USER_USERNAME]: (state, username) => {
     state.username = username
+  },
+  [types.SET_USER_NAME]: (state, name) => {
+    Cookies.set('user_name', name, { expires: 1 })
+    state.name = name
   },
   [types.SET_USER_TOKEN]: (state, token) => {
     state.token = token
