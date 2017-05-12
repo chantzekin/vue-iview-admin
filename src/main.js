@@ -41,8 +41,10 @@ router.beforeEach((to, from, next) => {
   }
 })
 router.afterEach(() => {
-  NProgress.done();
-});
+  setTimeout(function () {
+    NProgress.done()
+  }, 200)
+})
 
 
 /* eslint-disable no-new */
