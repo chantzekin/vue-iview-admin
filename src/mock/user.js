@@ -19,7 +19,7 @@ export default [
   },
   {
     path: '/api/logout',
-    type: 'get',
+    type: 'post',
     data: { data: { success: true } }
   }
 ]

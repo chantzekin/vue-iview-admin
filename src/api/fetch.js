@@ -59,11 +59,9 @@ export function fetch(opts) {
     instance(opts)
       .then(response => {
         const res = response.data
-        console.log(response)
         resolve(res)
       })
       .catch(error => {
-        console.log(error)
         store.commit(SHOW_MESSAGE, {
           type: 'error',
           content: error

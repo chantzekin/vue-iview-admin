@@ -12,3 +12,13 @@ export function login(username, password) {
   }
   return _fetch(opts)
 }
+
+export function logout(token) {
+  const data = { token }
+  const opts = {
+    url: '/api/logout',
+    method: 'post',
+    data
+  }
+  return _fetch(opts)
+}

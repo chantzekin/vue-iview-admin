@@ -1,48 +1,23 @@
 <template>
   <div class="login">
-    <Form
-      class="form"
-      ref="loginForm"
-      :model="formValidate"
-      :rules="ruleValidate"
-    >
+    <Form class="form" ref="loginForm" :model="formValidate" :rules="ruleValidate">
       <div class="logo">
-        <img
-          :src="logoUrl"
-          alt="logo"
-        >
-          <span>{{appName}}</span>
+        <img :src="logoUrl" alt="logo">
+        <span>{{appName}}</span>
       </div>
       <Form-item prop="username">
-        <Input
-          type="text"
-          v-model="formValidate.username"
-          placeholder="Username"
-          icon="ios-person-outline"
-          @on-enter="handleSubmit"
-        ></Input>
+        <Input type="text" v-model="formValidate.username" placeholder="Username" icon="ios-person-outline" @on-enter="handleSubmit"></Input>
       </Form-item>
       <Form-item prop="password">
-        <Input
-          type="password"
-          v-model="formValidate.password"
-          placeholder="Password"
-          icon="ios-locked-outline"
-          @on-enter="handleSubmit"
-        ></Input>
+        <Input type="password" v-model="formValidate.password" placeholder="Password" icon="ios-locked-outline" @on-enter="handleSubmit"></Input>
       </Form-item>
       <Form-item>
-        <Button
-          type="primary"
-          @click="handleSubmit"
-          :loading="loading"
-          long
-        >
+        <Button type="primary" @click="handleSubmit" :loading="loading" long>
           <span v-if="!loading">Sign in</span>
           <span v-else>Please wait...</span>
-          </Button>
+        </Button>
       </Form-item>
-      </Form>
+    </Form>
   </div>
 </template>
 
@@ -76,10 +51,13 @@ export default {
         if (valid) {
           this.loading = true
           this.$store
-            .dispatch('login', this.formValidate)
+            .dispatch('user/login', this.formValidate)
             .then(() => {
+              const fromPath = this.$route.query.redirect || '/'
               this.loading = false
-              this.$router.push({ path: '/' });
+              this.$router.push({ path: fromPath })
+              this.formValidate.username = ''
+              this.formValidate.password = ''
             })
             .catch(err => {
               this.$Message.error(err)

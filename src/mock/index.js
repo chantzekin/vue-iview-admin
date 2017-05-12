@@ -14,7 +14,7 @@ addToMock(dashboard)
 addToMock(user)
 
 Mock.setup({
-  timeout: '200-1000'
+  timeout: '100-500'
 })
 
 export default Mock

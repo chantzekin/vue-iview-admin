@@ -9,14 +9,14 @@ import * as types from '../mutation-types'
 const state = {
   username: '',
   status: '',
-  token: Cookies.get('X-Token'),
+  token: Cookies.get('X-Token') || '',
   name: '',
   avatar: '',
   roles: [],
 }
 
 const actions = {
-  login({ commit }, userInfo) {
+  ['user/login']({ commit }, userInfo) {
     const username = userInfo.username.trim()
     return new Promise((resolve, reject) => {
       api
@@ -24,6 +24,7 @@ const actions = {
         .then(res => {
           const data = res.data
           if (data.success) {
+            commit(types.LOGIN_SUCCESS, data.user.token)
             commit(types.SET_USER_TOKEN, data.user.token)
             commit(types.SET_USER_USERNAME, data.user.username)
             resolve()
@@ -32,21 +33,32 @@ const actions = {
         })
         .catch(err => reject(err))
     })
+  },
+  ['user/logout']({ commit, state }) {
+    return new Promise((resolve, reject) => {
+      api
+        .logout(state.token)
+        .then(() => {
+          commit(types.LOGOUT_SUCCESS)
+          commit(types.SET_USER_TOKEN, '')
+          resolve()
+        })
+        .catch(err => reject(err))
+    })
   }
 }
 
 const mutations = {
-  [types.LOGIN_SUCCESS]: () => {
-    console.log('Login success.')
+  [types.LOGIN_SUCCESS]: (state, token) => {
+    Cookies.set('X-Token', token, { expires: 1 })
   },
-  [types.LOGOUT_USER]: (state) => {
-    state.username = ''
+  [types.LOGOUT_SUCCESS]: () => {
+    Cookies.remove('X-Token')
   },
   [types.SET_USER_USERNAME]: (state, username) => {
     state.username = username
   },
   [types.SET_USER_TOKEN]: (state, token) => {
-    Cookies.set('X-Token', token, { expires: 1 })
     state.token = token
   },
   [types.SET_USER_AVATAR]: (state, avatar) => {

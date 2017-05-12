@@ -3,13 +3,15 @@
     <Sider />
     <div class="main">
       <header class="header">
-        <Dropdown class="user-dropdown">
+        <Dropdown class="user-dropdown" @on-click="handleDropdownClick">
           <Button type="text" class="user-button">
             <Icon type="ios-person-outline" class="icon"></Icon>
             <span class="name">admin</span>
           </Button>
           <Dropdown-menu slot="list">
-            <Dropdown-item>Logout</Dropdown-item>
+            <Dropdown-item>个人中心</Dropdown-item>
+            <Dropdown-item divided>设置</Dropdown-item>
+            <Dropdown-item name="logout">注销</Dropdown-item>
           </Dropdown-menu>
         </Dropdown>
       </header>
@@ -40,7 +42,24 @@ export default {
     Bread
   },
   mounted() {
-
+  },
+  methods: {
+    handleDropdownClick(name) {
+      if(name === 'logout'){
+        this.logout()
+      }
+    },
+    logout() {
+      const curPath = this.$router.currentRoute.fullPath || '/'
+      this.$store
+        .dispatch('user/logout')
+        .then(() =>
+          this.$router.push({
+            path: '/login',
+            query: { redirect: curPath }
+          })
+        )
+    }
   }
 }
 </script>

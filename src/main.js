@@ -1,5 +1,6 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+//
+//
+
 import Vue from 'vue'
 import iView from 'iview'
 import axios from 'axios'
@@ -15,18 +16,29 @@ import 'iview/dist/styles/iview.css'
 import './assets/common.css'
 
 Vue.use(iView)
-
 Vue.prototype.$http = axios
-
 Vue.config.productionTip = false
+// Vue.config.devtools = true
+// Vue.config.silent = true
+
 
 NProgress.configure({ showSpinner: false })
 
 const notNeedAuthRoutes = ['/login']
+
 router.beforeEach((to, from, next) => {
   NProgress.start();
-  next()
-
+  const toPath = to.path
+  if (store.getters.token) {
+    // TODO: 权限鉴定
+    next()
+  } else {
+    if (notNeedAuthRoutes.includes(toPath)) {
+      next()
+    } else {
+      next({ path: '/login', query: { redirect: to.fullPath } })
+    }
+  }
 })
 router.afterEach(() => {
   NProgress.done();
