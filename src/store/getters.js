@@ -4,6 +4,7 @@
 export default {
   // user
   token: state => state.user.token,
+  name: state => state.user.name,
 
   // dashboard
   statisticsNumbers: state => state.dashboard.numbers,
