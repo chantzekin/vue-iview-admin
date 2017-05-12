@@ -5,7 +5,7 @@ Vue.use(Router)
 
 const Index = r => require.ensure([], () => r(require('@/pages/Index')), 'index')
 const Dashboard = r => require.ensure([], () => r(require('@/pages/Dashboard/index')), 'dashboard')
-const Task = r => require.ensure([], () => r(require('@/pages/Task')), 'task')
+const Task = r => require.ensure([], () => r(require('@/pages/Task/index')), 'task')
 const SubPage = r => require.ensure([], () => r(require('@/pages/Submenu/SubPage')), 'subPage')
 
 const NotFound = r => require.ensure([], () => r(require('@/pages/404')), '404')
