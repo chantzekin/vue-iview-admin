@@ -54,7 +54,7 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loaders: [
           {
-            loader: path.resolve(__dirname, 'cssPathResolver')
+            loader: path.resolve(__dirname, 'cssSourcePathResolver')
           },
           {
             loader: 'url-loader',
