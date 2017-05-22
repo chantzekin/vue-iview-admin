@@ -83,6 +83,10 @@ export default {
   width: 320px;
   height: 320px;
   padding: 36px;
+  top: 50%;
+  left: 50%;
+  margin-left: -160px;
+  margin-top: -160px;
   box-shadow: 0 0 100px rgba(0, 0, 0, 0.08)
 }
 
