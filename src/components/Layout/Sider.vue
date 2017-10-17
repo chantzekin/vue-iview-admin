@@ -32,7 +32,7 @@ import config, { menus } from '../../constants/config'
 export default {
   data() {
     return {
-      logoUrl: config.logoUrl,
+      logoUrl: require('@/assets/brand.png'),
       appName: config.appName,
       menus,
       activeTab: '',

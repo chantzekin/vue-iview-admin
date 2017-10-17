@@ -15,16 +15,13 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "highcharts": "^v5.0.10",
     "iview": "^2.0.0-rc.12",
     "js-cookie": "^2.1.4",
     "mockjs": "^1.0.1-beta3",
     "nprogress": "^0.2.0",
     "vue": "^2.2.6",
     "vue-count-to": "^1.0.5",
-    "vue-echarts": "^2.3.8",
     "vue-echarts-v3": "^1.0.4",
-    "vue-highcharts": "^0.0.10",
     "vue-router": "^2.3.1",
     "vuex": "^2.3.1"
   },

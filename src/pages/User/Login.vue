@@ -29,7 +29,7 @@
   export default {
     data() {
       return {
-        logoUrl: config.logoUrl,
+        logoUrl: require('../../assets/brand.png'),
         appName: config.appName,
         loading: false,
         formValidate: {
